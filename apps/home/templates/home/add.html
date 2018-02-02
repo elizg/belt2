@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Create Item</title>
+    
+</head>
+<body>
+    <p><a href="{% url 'user:logout' %}">Logout</a> <a href="{% url 'home:home' %}">Home</a></p>
+    <h1>Create A New Wish List Item</h1>
+    <form action="{% url 'home:add' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="wish_name">
+    <input type="submit" value="Add">
+
+    </form>
+    {% for m in messages %}
+        {{m}}
+    {% endfor %}
+</body>
+</html>
+

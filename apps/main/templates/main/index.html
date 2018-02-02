@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Login/Register</title>
+
+</head>
+
+        <h1>Welcome!</h1>
+      
+            <h2>Register</h2>
+            <form action="{% url 'user:register' %}" method="POST">
+                {% csrf_token %}
+                Name: <input type="text" name="html_name"><br>
+                Username: <input type="text" name="html_username"><br>
+                Email: <input type="email" name="html_email"> <br>
+                Password: <input type="password" name="html_password"> <br>
+                *Password should be at least 8 characters<br>
+                Confirm PW: <input type="password" name="html_confirm"><br>
+                Date Hired: <input type="date" name="html_date"><br>
+                            <input type="submit" value="Register">
+            </form> 
+            {% for m in messages %}
+                <p>{{m}}</p>
+            {% endfor %}
+            <br>
+            <br>
+            <h2>Login</h2>
+            <form action="{% url 'user:login' %}" method="POST">
+                {% csrf_token %}
+                Username: <input type="text" name="html_username"><br>
+                Password: <input type="password" name="html_password"><br>
+            <input type="submit" value="Login">
+            </form>
+    </body>
+    </html>
+  
+        

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{item.title}}</title>
+    
+</head>
+<body>
+    <p><a href="{% url 'user:logout' %}">Logout</a> <a href="{% url 'home:home' %}">Home</a></p>
+    <h1>{{item.title}}</h1>
+    <h2>Users who added {{item.title}} to their wish list:</h2>
+
+    {% for wisher in wish %}
+        <h3>{{wisher.wisher.name}}</h3>
+    {% endfor %}
+    
+</body>
+</html>
